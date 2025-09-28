@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensaje para ti ❤️</title>
+  <style>
+    body {
+      background: url("imgab.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding-top: 100px;
+      color: white;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .typewriter {
+      font-size: 9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #d63384;
+      width: 40ch;
+      margin: 0 auto;
+      animation: typing 4s steps(30) 1s 1 normal both,
+                 blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 30ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .heart {
+      display: inline-block;
+      color: red;
+      font-size: 2rem;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* Mensajes flotantes */
+    .mensaje {
+      position: absolute;
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-style: italic;
+      animation: mover 12s linear infinite;
+      white-space: nowrap;
+    }
+
+    /* Animación: suben y desaparecen */
+    @keyframes mover {
+      0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+      }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="typewriter">Te amo con el alma 🩷<span class="heart">❤️</span></h1>
+
+  <!-- Contenedor de mensajes -->
+  <div id="mensajes"></div>
+
+  <script>
+    const frases = [
+      "Eres mi todo ❤️",
+        "Buenas noches mi amor🌓 ",
+      "Te pienso siempre 💕",
+      "Mi razón de sonreír 😍",
+      "Contigo todo es mejor 💖",
+        "Buenas noches mi amor ",
+      "Eres mi vida 😘",
+      "te quiero muchoooo😘",
+      "MY REY 💑",
+      "Mi corazón es tuyo 💓",
+      "Buenas noches mi amor🌓💤😴 ",
+      "Eres mi todo ❤️",
+        "Buenas noches mi amor🌓 ",
+      "Te pienso siempre 💕",
+      "Mi razón de sonreír 😍",
+      "Contigo todo es mejor 💖",
+        "Buenas noches mi amor ",
+      "Eres mi vida 😘",
+      "te quiero muchoooo😘",
+      "Siempre te amare 💑",
+      "Mi corazón es tuyo 💓",
+      "Buenas noches mi amor🌓💤😴 ",
+    ];
+
+    function crearMensaje() {
+      const div = document.createElement("div");
+      div.className = "mensaje";
+      div.innerText = frases[Math.floor(Math.random() * frases.length)];
+
+      // Posición horizontal aleatoria
+      div.style.left = Math.random() * 90 + "vw";
+      // Tamaño aleatorio
+      div.style.fontSize = (Math.random() * 1.5 + 1) + "rem";
+      // Velocidad aleatoria
+      div.style.animationDuration = (Math.random() * 10 + 8) + "s";
+
+      document.getElementById("mensajes").appendChild(div);
+
+      // Borrar después de terminar animación
+      setTimeout(() => {
+        div.remove();
+      }, 12000);
+    }
+
+    // Crear mensajes cada 1.5 segundos
+    setInterval(crearMensaje, 1500);
+  </script>
+</body>
+</html>
